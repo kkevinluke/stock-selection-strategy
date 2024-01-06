@@ -119,7 +119,7 @@ st.write("Sample Strategy Performance:", strategy_performance)
 # Visualize equity curves in a single plot
 # Implement code here to plot equity curves using matplotlib
 # Generate equity curves data for Nifty, benchmark, and sample strategy
-stock_instance = Stock('NIFTY50')
+stock_instance = Stock('^NSEI')
 benchmark_equity_curve = calculate_benchmark_equity(start_date, end_date)
 sample_strategy_equity_curve = implement_sample_strategy(selected_stocks, start_date, end_date)
 
