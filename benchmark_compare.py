@@ -28,7 +28,7 @@ class BenchmarkStrategy:
     def calculate_nifty50_performance(self, start_date, end_date):
 
         # Creating Stock Instance for NIFTY 50
-        stock_instance = Stock("NIFTY50")
+        stock_instance = Stock("^NSEI")
         nifty50_returns = stock_instance.n_day_ret((end_date - start_date).days, end_date)
         # Considering positive returns as Nifty50 performance
         nifty50_performance = nifty50_returns if nifty50_returns and nifty50_returns > 0 else None
