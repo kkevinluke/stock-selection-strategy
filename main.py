@@ -83,7 +83,7 @@ class Stock:
 
 
 # Example usage:
-ticker_symbol = 'AAPL'  # Replace 'AAPL' with the desired stock ticker
+ticker_symbol = '^NSEI'  # Replace 'AAPL' with the desired stock ticker
 stock = Stock(ticker_symbol)
 
 # Get the closing price for a specific date
