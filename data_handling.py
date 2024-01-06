@@ -4,7 +4,7 @@ from main import Stock
 
 # Simulated function to fetch historical Nifty50 index prices
 def fetch_nifty50_historical_prices(start_date, end_date):
-    stock_instance = Stock('NIFTY50')
+    stock_instance = Stock('^NSEI')
 
     # Simulated historical prices (random values for demonstration)
     historical_prices = {}
