@@ -54,7 +54,7 @@ class EvaluationMetrics:
 
     def evaluate_nifty_index(self, start_date, end_date):
         '''Evaluate nifty with all Metrics'''
-        nifty_symbol = "NIFTY50"
+        nifty_symbol = "^NSEI"
         cagr = self.calculate_cagr(nifty_symbol, start_date, end_date)
         volatility = self.calculate_volatility(nifty_symbol, start_date, end_date)
         sharpe_ratio = self.calculate_sharpe_ratio(nifty_symbol, start_date, end_date)
