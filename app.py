@@ -45,20 +45,22 @@ def calculate_sample_strategy_equity(selected_stocks, start_date, end_date):
 
     # Calculate equity curve for the sample strategy based on selected stocks' historical prices
     sample_strategy_equity_curve = [100000]  # Assuming starting equity is 100,000 for the strategy
-    for i in range(1, len(list(selected_stocks_historical_prices.values())[0])):
+    max_length = min(len(lst) for lst in selected_stocks_historical_prices.values())
+    for i in range(1, max_length):
         daily_total_equity = 0
         for stock_symbol in selected_stocks:
-            stock_price = selected_stocks_historical_prices[stock_symbol][
-                list(selected_stocks_historical_prices[stock_symbol].keys())[i]]
-            previous_stock_price = selected_stocks_historical_prices[stock_symbol][
-                list(selected_stocks_historical_prices[stock_symbol].keys())[i - 1]]
-            daily_return = (stock_price / previous_stock_price) - 1
-            daily_equity = sample_strategy_equity_curve[-1] * (
-                        1 + daily_return / len(selected_stocks))  # Distribute return equally among stocks
-            daily_total_equity += daily_equity
+            stock_prices = selected_stocks_historical_prices[stock_symbol]
+            if len(stock_prices) > i:
+                stock_price = stock_prices[list(stock_prices.keys())[i]]
+                previous_stock_price = stock_prices[list(stock_prices.keys())[i - 1]]
+                daily_return = (stock_price / previous_stock_price) - 1
+                daily_equity = sample_strategy_equity_curve[-1] * (
+                            1 + daily_return / len(selected_stocks))  # Distribute return equally among stocks
+                daily_total_equity += daily_equity
         sample_strategy_equity_curve.append(daily_total_equity)
 
     return sample_strategy_equity_curve
+
 
 
 def implement_sample_strategy(selected_stocks, start_date, end_date):
